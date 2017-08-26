@@ -41,3 +41,13 @@ gulp.task('scripts', () => {
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest()));
 });
+
+var deploy      = require('gulp-gh-pages');
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./build/**/*")
+    .pipe(deploy())
+});
