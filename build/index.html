@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Frontend Bootstrap!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/vendor.css" rel="stylesheet">
+    <link href="/css/application.css" rel="stylesheet">
+    <base href="/">
+  </head>
+  <body ng-app="app-bootstrap" ng-strict-di><i class="fa fa-heart" aria-hidden="true"></i>
+    <div ui-view="main"></div>
+    <!-- inject:js-->
+    <script src="/js/vendor/angular.js"></script>
+    <script src="/js/vendor/angular-ui-router.js"></script>
+    <script src="/js/vendor/angular-local-storage.js"></script>
+    <script src="/js/vendor/angular-translate.js"></script>
+    <script src="/js/app.module.js"></script>
+    <script src="/js/app/app.config.js"></script>
+    <script src="/js/app/app.routes.js"></script>
+    <script src="/js/app/app.translations.js"></script>
+    <script src="/js/app/config/development.js"></script>
+    <script src="/js/app/components/centered/component1/component1.translations.js"></script>
+    <script src="/js/app/components/centered/component1/component1Controller.js"></script>
+    <script src="/js/app/components/centered/component2/component2.translations.js"></script>
+    <script src="/js/app/components/centered/component2/component2Controller.js"></script>
+    <!-- endinject-->
+  </body>
+</html>
