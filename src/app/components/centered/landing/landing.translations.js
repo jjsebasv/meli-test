@@ -1,11 +1,9 @@
-angular.module('app-bootstrap').config([
+angular.module('meli-test').config([
   '$translateProvider',
   function ($translateProvider) {
 
     $translateProvider.translations('es', {
-      COMPO1: {
-        TITLE: 'Title 1'
-      }
+
     });
   }
 ]);

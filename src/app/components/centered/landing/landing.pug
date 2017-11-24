@@ -1,0 +1,21 @@
+.landing
+  .form-inline
+    .form-group
+      h1
+        | Product id &nbsp
+      select.form-control(ng-options='option as option.name for option in landingCtrl.options' ng-model='landingCtrl.selected')
+    .form-group
+      input.form-control(type='number' placeholder='683480185' ng-model='landingCtrl.productId')
+    button.btn.btn-info(type='button' ng-disabled='!landingCtrl.productId || !landingCtrl.selected' ng-click='landingCtrl.go()')
+      | Search and compare product
+  .note
+    p
+      | This site is for test use only
+    p
+      | Only Mercado Libre's public API was used in the coding of the following functions (http://developers.mercadolibre.com)
+    p
+      | This comparator uses Mercado Libre's categories assuming that each existing product is correctly labeled to a catagory and that each category contains correctly labeled products
+    p
+      | To be presented to Mercado Libre Argentina Integration Department
+    p
+      | Designed by Juan Sebastian Vera

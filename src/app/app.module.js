@@ -1,5 +1,5 @@
 angular.module(
-  'app-bootstrap', [
+  'meli-test', [
     'ui.router',
     'LocalStorageModule',
     'pascalprecht.translate'

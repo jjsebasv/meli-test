@@ -1,10 +1,10 @@
-angular.module('app-bootstrap').config([
+angular.module('meli-test').config([
   '$stateProvider', '$urlRouterProvider', '$locationProvider',
   function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     // For any unmatched urls
     $urlRouterProvider.otherwise(($injector) => {
-      $injector.get('$state').go('centered.state1');
+      $injector.get('$state').go('centered.landing');
     });
 
     // Now set up the states
@@ -17,23 +17,23 @@ angular.module('app-bootstrap').config([
           }
         }
       })
-      .state('centered.state1', {
-        url: '/state1',
+      .state('centered.landing', {
+        url: '/landing',
         views: {
           content: {
-            templateUrl: '../app/components/centered/component1/component1.html',
-            controller: 'Component1Controller',
-            controllerAs: 'comp1Ctrl'
+            templateUrl: '../app/components/centered/landing/landing.html',
+            controller: 'LandingController',
+            controllerAs: 'landingCtrl'
           }
         }
       })
-      .state('centered.state2', {
-        url: '/state2',
+      .state('centered.metrics', {
+        url: '/metrics/:itemid',
         views: {
           content: {
-            templateUrl: '../app/components/centered/component2/component2.html',
-            controller: 'Component2Controller',
-            controllerAs: 'comp2Ctrl'
+            templateUrl: '../app/components/centered/metrics/metrics.html',
+            controller: 'MetricsController',
+            controllerAs: 'metricsCtrl'
           }
         }
       });

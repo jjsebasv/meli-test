@@ -1,0 +1,82 @@
+.loading(ng-if='metricsCtrl.loading')
+  .information(ng-switch='metricsCtrl.error')
+    span(ng-switch-when='true')
+      | Something went wrong. Go back and try again.
+      a(ui-sref='centered.landing')
+        | Go back to landing
+    span(ng-switch-default)
+      | We are loading your metrics. Please wait.
+      .spinner
+        i.material-icons
+          | cached
+
+.metrics(ng-if='!metricsCtrl.loading')
+  .nav
+    a.back(ui-sref='centered.landing')
+      | <
+    .item
+      .specs
+        .product-name
+          | {{metricsCtrl.item.title}}
+        .product-condition
+          | {{metricsCtrl.item.condition}}
+        .product-location
+          | {{metricsCtrl.item.seller_address.search_location.state.name}}
+      .filter
+        span
+          | Similar products are {{metricsCtrl.filter}} filtered by condition and city
+        span.clickable(ng-click='metricsCtrl.toggleFilters()')
+          | &nbsp[toggle filters]
+  .price-metrics.metric
+    .own
+      .title.separator
+        | Your price is
+      .value.separator
+        | {{metricsCtrl.price | number : 2}}
+    .others
+      | Avg price: {{metricsCtrl.avgPrice | number : 2}}
+    .others(ng-if="metricsCtrl.percentage" ng-switch="(metricsCtrl.price > metricsCtrl.avgPrice)")
+      span(ng-switch-when="true")
+        | Your price is {{metricsCtrl.percentage | number : 2}}% above the average
+      span(ng-switch-default)
+        | Your price is {{metricsCtrl.percentage | number : 2}}% below the average
+  .reputation-metrics.metric
+    .own
+      .title.separator
+        | Your reputation is
+      .value.separator
+        | {{metricsCtrl.ownReputation}}
+    .others
+      | The most frequent reputation among your competitors is {{metricsCtrl.mostFrequentReputation.level}} ({{(metricsCtrl.mostFrequentReputation.amount / metricsCtrl.amountOfCompetitors * 100) | number : 2}}%)
+    .others(ng-if='metricsCtrl.competitorsPercentage.lower !== 0')
+      | {{metricsCtrl.competitorsPercentage.lower | number : 2}}% of your competitors have a lower reputation that yours
+    .others(ng-if='metricsCtrl.competitorsPercentage.higher !== 0')
+      | {{metricsCtrl.competitorsPercentage.higher | number : 2}}% of your competitors have a higher reputation that yours
+    .others(ng-if='metricsCtrl.competitorsPercentage.same !== 0')
+      | {{metricsCtrl.competitorsPercentage.same | number : 2}}% of your competitors have the same reputation that you
+  .sold-metrics.metric
+    .own
+      .title.separator
+        | Your item was sold
+      .value.separator
+        | {{metricsCtrl.ownSoldQuantity}} times
+    .others
+      |  while the average amount of your competitors' sales is {{metricsCtrl.avgSoldQuantity | number : 2}}
+    .others(ng-if='metricsCtrl.maxSold > metricsCtrl.ownSoldQuantity')
+      | Please bear in mind that one of your competitors sold {{metricsCtrl.maxSold}} of this
+  .mercado-pago-metrics.metric
+    .own
+      .title.separator
+        | Accept MercadoPago
+      .value.separator
+        | {{metricsCtrl.ownMercadoPago ? 'Yes' : 'No'}}
+    .others
+      | while {{metricsCtrl.mercadoPago[!metricsCtrl.ownMercadoPago] / metricsCtrl.amountOfCompetitors * 100 | number : 2}}% of your competitors {{aux = metricsCtrl.ownMercadoPago ? 'do not' : 'do'}}
+  .free-shipping-metrics.metric
+    .own
+      .title.separator
+        | Free Shipping
+      .value.separator
+        | {{metricsCtrl.ownFreeShipping ? 'Yes' : 'No'}}
+    .others
+      | while {{metricsCtrl.freeShipping[!metricsCtrl.ownFreeShipping] / metricsCtrl.amountOfCompetitors * 100 | number : 2}}% of your competitors {{aux = metricsCtrl.ownFreeShipping ? 'do not' : 'do'}}

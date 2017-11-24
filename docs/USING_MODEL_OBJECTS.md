@@ -3,7 +3,7 @@
 __Must read:__ https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.3dosxlvf0
 
 ```js
-angular.module('app-bootstrap').factory('AbstractModel', [
+angular.module('meli-test').factory('AbstractModel', [
   function () {
 
     const privateBuild = function (modelData) {
@@ -73,7 +73,7 @@ angular.module('app-bootstrap').factory('AbstractModel', [
 ```
 
 ```js
-angular.module('app-bootstrap').factory('Bill', [
+angular.module('meli-test').factory('Bill', [
   'AbstractModel', 'User',
   function (AbstractModel, User) {
 
@@ -122,7 +122,7 @@ angular.module('app-bootstrap').factory('Bill', [
 ```
 
 ```js
-angular.module('app-bootstrap').factory('User', [
+angular.module('meli-test').factory('User', [
   'AbstractModel',
   function (AbstractModel) {
 

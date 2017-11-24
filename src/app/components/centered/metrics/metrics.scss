@@ -1,0 +1,115 @@
+// Loading
+
+.loading {
+  align-items: center;
+  background-color: $translucent-white;
+  display: flex;
+  height: 95vh;
+  justify-content: center;
+  padding: 20px;
+  width: 100vw;
+
+  .spinner {
+    align-items: center;
+    animation: spin 1s linear infinite 1s;
+    color: $strong-yellow;
+    display: flex;
+    justify-content: center;
+
+    .material-icons {
+      font-size: 72px;
+      font-weight: 800;
+      transform: translate(-2%, 1%);
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+// Nav
+
+.nav {
+  align-items: center;
+  background-color: $strong-yellow;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 100%;
+
+  .back {
+    color: $black;
+    font-weight: 800;
+    font-size: 30px;
+    width: 50px;
+
+    &:hover {
+      cursor: pointer;
+      color: $grey;
+      text-decoration: none;
+    }
+  }
+
+  .item {
+    flex-grow: 1;
+  }
+
+  .specs {
+    align-items: center;
+    display: flex;
+    font-weight: 800;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .filter {
+    width: 100%;
+
+    .clickable {
+      color: $blue;
+      cursor: pointer;
+
+      &:hover {
+        color: $ligth-blue;
+      }
+    }
+  }
+}
+
+// Metrics
+
+.metric {
+  align-items: center;
+  background-color: $translucent-white;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  min-height: 200px;
+  padding: 0 20px;
+  width: 100%;
+
+  .own {
+    border-right: 3px solid $grey;
+    min-width: 200px;
+
+    .value {
+      font-size: 30px;
+      font-weight: 800;
+    }
+  }
+
+  .others {
+    flex-grow: 1;
+  }
+
+  .separator {
+    width: 100%;
+  }
+}
